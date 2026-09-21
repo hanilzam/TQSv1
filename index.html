@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f172a">
+  <title>Hall Toilet Queue</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="app-header"><div class="brand"><div class="brand-mark">🚻</div><div><h1>Hall Toilet Queue</h1><p>Invigilation dashboard</p></div></div><div id="syncStatus" class="sync-pill">Connecting…</div></header>
+<main class="shell" id="app">
+  <section class="top-grid"><div class="field-card"><label for="sessionName">Hall / Exam Session</label><input id="sessionName" placeholder="e.g. Hall A · Paper 1"></div><div class="field-card"><label for="teacherName">Invigilator</label><input id="teacherName" placeholder="Name or initials"></div></section>
+  <nav class="tabs"><button id="femaleTab" class="tab active female" onclick="switchTab('Female')"><span>🚺 Female</span><strong id="femaleBadge">0</strong></button><button id="maleTab" class="tab male" onclick="switchTab('Male')"><span>🚹 Male</span><strong id="maleBadge">0</strong></button></nav>
+  <section class="add-card"><div class="section-heading"><div><span class="eyebrow">Quick add</span><h2 id="addHeading">Add to Female queue</h2></div></div><div class="add-grid"><div><label for="pupilName">Pupil name</label><input id="pupilName" placeholder="Enter pupil name" autocomplete="off"></div><div><label for="pupilClass">Class</label><input id="pupilClass" placeholder="e.g. 6A" autocomplete="off"></div><button class="primary-btn" onclick="addPupil()">Add pupil</button></div></section>
+  <section class="queue-card"><div id="queueHeader" class="queue-banner female"><div><span class="eyebrow light">Current queue</span><h2 id="queueTitle">🚺 Female Toilet</h2></div><div id="limitText" class="limit-pill">Max inside 1</div></div><div class="stats"><div class="stat-card"><span>Waiting</span><strong id="waitingCount">0</strong></div><div class="stat-card"><span>Inside</span><strong id="insideCount">0</strong></div></div><div class="queue-section"><div class="queue-label">Waiting</div><div id="waitingList"></div></div><div class="queue-section"><div class="queue-label">Inside</div><div id="insideList"></div></div></section>
+  <details class="admin-card"><summary>Admin and recent history</summary><div class="admin-content"><button class="danger-btn" onclick="clearQueues()">Clear active queue for this session</button><div class="history-block"><h3>Recent returned pupils</h3><div id="historyList"></div></div></div></details>
+</main>
+<div id="toast" class="toast"></div>
+<script src="config.js"></script><script src="app.js"></script>
+</body></html>
